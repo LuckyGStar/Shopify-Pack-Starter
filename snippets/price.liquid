@@ -1,0 +1,58 @@
+{% comment %}
+  Renders a list of product's price (regular, sale)
+
+  @param target {Product|Variant}
+  @param price {number}
+  @param class {String}
+  @param attr {String}
+  @param show_trailing_zeros {Boolean} [false]
+
+  Usage:
+  {% render 'price', target: target %}
+{% endcomment %}
+
+{%- liquid
+  assign target = target | default: ''
+  assign compare_at_price = target.compare_at_price
+
+  assign price = price | default: target.price | default: 1999
+  assign money_price = price | money_without_trailing_zeros
+  if show_trailing_zeros
+    assign money_price = price | money
+  endif
+
+  assign on_sale = false
+  if compare_at_price != blank and compare_at_price > price
+    assign on_sale = true
+  endif
+-%}
+
+<span class="price {{ class }}" {{ attr }}>
+  {% if on_sale %}
+    <span>
+      <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+      <span class="price__item price__item" data-price>
+        {{ money_price }}
+      </span>
+    </span>
+    <span>
+      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+      <span>
+        <s class="price__item price__item--compare" data-compare-price>
+          {% if show_trailing_zeros %}
+            {{ compare_at_price | money }}
+          {% else %}
+            {{ compare_at_price | money_without_trailing_zeros }}
+          {% endif %}
+        </s>
+      </span>
+    </span>
+  {% else %}
+    <span>
+      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+      <span class="price__item price__item" data-price>
+        {{ money_price }}
+      </span>
+    </span>
+  {% endif %}
+</span>

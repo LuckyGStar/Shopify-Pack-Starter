@@ -1,0 +1,32 @@
+{{ 'main-product.min.css' | asset_url | stylesheet_tag }}
+
+<main-product
+  id="MainProduct-{{ section.id }}"
+  class="section-{{ section.id }} product container"
+>
+</main-product>
+
+<script src="{{ 'main-product.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-product.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.main-product.settings.header.content"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.main-product.name"
+    }
+  ]
+}
+{% endschema %}

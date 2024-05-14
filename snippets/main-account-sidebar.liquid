@@ -1,0 +1,42 @@
+<div class="account__sidebar relative">
+  <button class="account__sidebar__dropdown w-full bg-off-white flex justify-content-space-between align-items-center align-self-stretch p-2 color-tena-primary-blue w-medium" type="button" name="button">
+    <span>{{ template.name | capitalize }}</span>
+    <div class="icons flex flex-direction-column">
+      {%- render 'icons', icon_name: 'qty-plus' -%}
+      {%- render 'icons', icon_name: 'qty-minus' -%}
+    </div>
+  </button>
+
+  <div class="sidebar flex flex-direction-column align-items-flex-start">
+    <ul class="account__sidebar__links flex flex-direction-column align-items-flex-start align-self-stretch">
+      <li
+        class="p-3 color-tena-primary-blue w-regular pointer w-full {% if template.name == 'account' %}active{% endif %}"
+        data-nav-link="/account"
+      >
+        {{ 'customer.account.my_account' | t }}
+      </li>
+      <li
+        class="p-3 color-tena-primary-blue w-regular pointer w-full"
+        data-nav-link="/pages/subscriptions"
+      >
+        {{ 'customer.subscriptions.title' | t }}
+      </li>
+      <li
+        class="p-3 color-tena-primary-blue w-regular pointer w-full {% if template.name == 'addresses' %}active{% endif %}"
+        data-nav-link="/account/addresses"
+      >
+        {{ 'customer.addresses.title' | t }}
+      </li>
+      <li
+        class="p-3 color-tena-primary-blue w-regular pointer w-full"
+        data-nav-link="/pages/customer-service"
+      >
+        {{ 'customer.customer.service' | t }}
+      </li>
+    </ul>
+
+    <a class="account__sidebar__action p-3 color-tena-primary-blue w-regular" href="{{ routes.account_logout_url }}">
+      {{ 'customer.log_out' | t }}
+    </a>
+  </div>
+</div>

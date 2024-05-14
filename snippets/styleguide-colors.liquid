@@ -1,0 +1,35 @@
+{%- liquid
+  comment
+  @format: <background-color>:<text-color>:<hex-code>
+  endcomment
+
+  assign primary_swatches = 'tena-primary-blue:white,tena-secondary-blue:white,tena-light-blue:tena-primary-blue,white:tena-primary-blue,off-white:tena-primary-blue,light-grey:tena-primary-blue,medium-grey:tena-primary-blue,dark-blue:white,ada-secondary-blue:white,error-red:white,star-gold:white,tena-green:white'
+  assign primary_swatches_array = primary_swatches | split: ','
+  assign swatches = primary_swatches_array | default: false
+  assign title = title | default: false
+-%}
+
+{%- if swatches != blank -%}
+  <div class="styleguide__colors">
+    {%- if title != blank -%}
+      <h3>{{ title }}</h3>
+    {%- endif -%}
+    <div class="styleguide__colors-list">
+      {%- for swatch in swatches -%}
+        {%- liquid
+          assign swatch_parts = swatch | split: ':'
+          assign bg_color_name = swatch_parts | first
+          assign text_color_name = swatch_parts[1]
+        -%}
+        <div class="styleguide__color-item">
+          {% capture style %}
+            background-color: var(--color-{{ bg_color_name }});
+            color: var(--color-{{ text_color_name }});
+          {% endcapture %}
+          <styleguide-swatch class="label styleguide__color {% if bg_color_name == 'white' %}styleguide__color--border{% endif %}" style="{{ style }}"><div class="h6 strong"><span></span>{{ bg_color_name | capitalize }}</div></styleguide-swatch>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+

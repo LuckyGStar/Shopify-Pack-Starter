@@ -1,0 +1,150 @@
+@import "./helpers";
+
+
+// Form styles
+:root {
+  --button-padding: #{rem(16)} #{rem(32)};
+  --button-padding-small: #{rem(16)} #{rem(24)};
+  --button-border-radius: #{rem(56)};
+}
+
+// Buttons
+.btn {
+  position: inherit;
+  border: rem(1) solid transparent;
+  border-radius: var(--button-border-radius);
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  padding: var(--button-padding);
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    border 0.25s ease-in-out,
+  box-shadow 0.25s ease-in-out,
+  transform 0.25s ease-in-out;
+
+  &--primary {
+    border: rem(1) solid var(--color-off-black);
+    background-color: var(--color-tena-primary-blue);
+    color: var(--color-white);
+    position: relative;
+
+    &:focus {
+      outline: none;
+
+      &:after {
+        border: rem(1) solid var(--color-tena-primary-blue);
+        border-radius: var(--button-border-radius);
+        bottom: rem(-8);
+        content: "";
+        display: block;
+        left: rem(-8);
+        opacity: 1;
+        right: rem(-8);
+        top: rem(-8);
+        transition: opacity 0.3s ease-in-out;
+        position: absolute;
+      }
+    }
+
+    &:hover,
+    &.btn--hover {
+      color: var(--color-white);
+      background-color: var(--color-dark-blue);
+      transform: translateY(rem(-4));
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active,
+    &.btn--active {
+      color: var(--color-white);
+      background-color: var(--color-dark-blue);
+    }
+
+    &[disabled],
+    .disabled {
+      border-color: var(--color-medium-grey);
+      color: var(--color-black);
+      cursor: not-allowed;
+      background-color: var(--color-medium-grey);
+    }
+
+    &-light {
+      border: rem(1) solid var(--color-white);
+      background-color: var(--color-white);
+      color: var(--color-tena-primary-blue);
+      position: relative;
+
+      &:focus {
+        outline: none;
+
+        &:after {
+          border: rem(1) solid var(--color-tena-light-blue);
+          border-radius: var(--button-border-radius);
+          bottom: rem(-8);
+          content: "";
+          display: block;
+          left: rem(-8);
+          opacity: 1;
+          right: rem(-8);
+          top: rem(-8);
+          transition: opacity 0.3s ease-in-out;
+          position: absolute;
+        }
+      }
+
+      &:active,
+      &.btn--active {
+        background-color: var(--color-tena-light-blue);
+      }
+
+      &:hover,
+      &.btn--hover {
+        background-color: var(--color-tena-light-blue);
+        border-color: var(--color-tena-light-blue);
+        transform: translateY(rem(-4));
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+  &--large {
+    font-size: rem(20);
+    font-weight: 600;
+  }
+}
+
+//Play Buttons
+
+.btn--play{
+position: relative;
+outline: none;
+transition: transform 0.3s ease, filter 0.3s ease;
+cursor: pointer;
+filter: drop-shadow(0 0 0 transparent);
+
+svg {
+  width: rem(64);
+  height: rem(64);
+}
+
+  &:hover, &.btn--play-hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
+  }
+
+  &:focus::after{
+    content: '';
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    width: calc(100% + rem(8));
+    height: calc(100% + rem(10)); 
+    transform: translate(-50%, -48%);
+    border: 2px solid var(--color-medium-grey); 
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+

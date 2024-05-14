@@ -1,0 +1,42 @@
+// Convert pixels to rems - Base font size: 10px
+@function rem($pxval) {
+  @return calc($pxval / 16) * 1rem;
+}
+
+// Screen Variables
+// Breakpoints
+$breakpoints: (
+  phone: 576px,
+  tablet: 768px,
+  tablet-wide: 1024px,
+  desktop: 1366px,
+  desktop-large: 1920px,
+  desktop-ultra-large: 2880px,
+);
+
+/*
+  Mixin to manage responsive breakpoints
+  @author Kitty Giraudel
+  @param {String} $breakpoint - Breakpoint name
+  @require $breakpoints
+*/
+@mixin media-query($breakpoint, $type: "min") {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    $width: map-get($breakpoints, $breakpoint);
+    @if $type == "max" {
+      $width: $width - 1;
+    }
+
+    @media (#{$type}-width: $width) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

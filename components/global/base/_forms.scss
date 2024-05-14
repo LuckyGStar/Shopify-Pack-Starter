@@ -1,0 +1,190 @@
+@import "./helpers";
+
+.input--field {
+  color: var(--color-tena-primary-blue);
+  padding: rem(12) rem(16);
+  border: rem(1) solid var(--color-medium-grey);
+  background: var(--color-off-white);
+  border-radius: rem(12);
+
+  &__container {
+    position: relative;
+  }
+
+  //optional styles when an icon wants to be added, wrap the input field in a div, see styleguide example.
+  &__icon {
+    position: absolute;
+    left: 87%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__icon svg path {
+    fill: var(--color-tena-primary-blue);
+  }
+
+  &__icon svg circle {
+    stroke: var(--color-tena-primary-blue);
+  }
+
+  &::-webkit-input-placeholder {
+    color: var(--color-tena-primary-blue);
+    opacity: 0.6;
+  }
+
+  &::-moz-placeholder {
+    color: var(--color-tena-primary-blue);
+    opacity: 0.6;
+    
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--color-tena-primary-blue);
+    opacity: 0.6;
+    
+  }
+
+  &:-moz-placeholder {
+    color: var(--color-tena-primary-blue);
+    opacity: 0.6;
+    
+  }
+
+  &:hover,
+  &.input--hover {
+    border: rem(1) solid var(--color-tena-primary-blue);
+    background: var(--color-off-white);
+  }
+
+  &:focus,
+  &.input--focus {
+    outline: none;
+    border: rem(1) solid var(--color-tena-primary-blue);
+    background: var(--color-white);
+  }
+
+  &:invalid {
+    border: rem(1) solid var(--color-error-red);
+    background: var(--color-white);
+  }
+
+  &:invalid + .input--field__icon svg path {
+    fill: var(--color-error-red);
+  }
+
+  &:invalid + .input--field__icon svg circle {
+    stroke: var(--color-error-red);
+  }
+
+  &:disabled {
+    background: var(--color-off-white);
+    border: rem(1) solid var(--color-medium-grey);
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &:disabled + .input--field__icon svg path {
+    opacity: 0.5;
+  }
+
+  &:disabled + .input--field__icon svg circle {
+    opacity: 0.5;
+  }
+}
+
+//Selects
+.custom-select {
+  position: relative;
+  max-width: rem(200);
+
+  .icon-select{
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .icon-rotate {
+    transform: rotate(180deg);
+  }
+
+  button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: rem(12) rem(16);
+    background: var(--color-off-white);
+    color: var(--color-tena-primary-blue);
+    width: 100%;
+    border-radius: rem(12);
+    opacity: 0.66;
+    border: rem(1) solid var(--color-medium-grey);
+  
+    &:hover, &.select-hover {
+      border: rem(1) solid var(--color-tena-primary-blue);
+    }
+  
+    &.selected{
+      background: var(--color-white);
+      opacity: 1;
+    }
+
+    &.required{
+      border: rem(1) solid var(--color-error-red);
+      color: var(--color-error-red);
+      opacity: 1;
+      background: var(--color-white);
+      svg path{
+        stroke: var(--color-error-red);
+      }
+    }
+
+    &.deactivated{
+      opacity: 0.5; 
+      pointer-events: none;
+      background: var(--color-off-white);
+      border: rem(1) solid var(--color-medium-grey);
+      svg path{
+        stroke: var(--color-tena-primary-blue);
+        opacity: 0.6;
+      }
+    }
+    
+  }
+
+  ul {
+    background: var(--color-white);
+    color: var(--color-tena-primary-blue);
+    position: absolute;
+    max-height: rem(168);
+    min-width: rem(200);
+    width: 100%;
+    overflow-y: auto;
+    list-style-type: none;
+    padding: rem(16) rem(0);
+    margin-top: rem(8);
+    opacity: 0;
+    box-shadow: 0 8px 24px 0 rgba(0, 32, 92, 0.15);
+    border: rem(1) solid var(--color-medium-grey);
+    border-radius: rem(12);
+    transition: all 0.3s ease-in;
+    pointer-events: none;
+    z-index: 2;
+    &.active, &.select-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    li { 
+      padding: rem(8) rem(16);
+      cursor: pointer;
+      transition: all 0.3s ease-in;
+      position: relative;
+      display: flex;
+      &:hover,
+      &.current, &.select-active {
+        background: var(--color-off-white);
+      }
+    }
+  }
+}
+
+
+

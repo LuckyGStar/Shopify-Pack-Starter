@@ -1,0 +1,330 @@
+@import "./helpers";
+
+/*
+Typography styles can be applied in 3 ways:
+
+  - By default, to h1-h6 and p elements
+
+  - By using helper classes listed in this file, ie .h3, .utility, .blog-title-xl
+    THESE SHOULD NOT BE USED WITH @extend! Use CSS variables instead
+
+  - By applying font, text-transform, and letter-spacing typography variables
+    .my-element {
+      font: var(--font-caption);
+      text-transform: var(--font-caption-text-transform);
+      letter-spacing: var(--font-caption-letter-spacing);
+    }
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 0 rem(4);
+}
+
+.rte {
+  p {
+    font: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+}
+
+h1,
+.h1 {
+  font: var(--font-h1);
+}
+
+h2,
+.h2 {
+  font: var(--font-h2);
+}
+
+h3,
+.h3 {
+  font: var(--font-h3);
+  letter-spacing: var(--font-h3-letter-spacing);
+}
+
+h4,
+.h4 {
+  font: var(--font-h4);
+}
+
+h5,
+.h5 {
+  font: var(--font-h5);
+}
+
+h6,
+.h6 {
+  font: var(--font-h6);
+}
+
+.s-1 {
+  font: var(--font-s-1);
+}
+
+.p-1 {
+  font: var(--font-p-1);
+}
+
+.p-2 {
+  font: var(--font-p-2);
+}
+
+.p-3 {
+  font: var(--font-p-3);
+}
+
+.p-4 {
+  font: var(--font-p-4);
+}
+
+.p-5 {
+  font: var(--font-p-5);
+}
+
+// Paragraph weight classes
+
+.w-semibold {
+  font-weight: var(--font-p-weight-semibold);
+}
+
+.w-medium {
+  font-weight: var(--font-p-weight-medium);
+}
+
+.w-regular {
+  font-weight: var(--font-p-weight-regular);
+}
+
+.b-1 {
+  font: var(--font-b-1);
+}
+
+.label {
+  font: var(--font-label);
+  letter-spacing: var(--font-label-letter-spacing);
+  text-transform: uppercase;
+}
+
+.strong,
+strong,
+b {
+  font-weight: 600;
+}
+
+// Internal typography styles
+:root {
+  // Heading 1 Variables
+  --font-h1-weight: var(--font-h-weight);
+  --font-h1-size: #{rem(64)};
+  --font-h1-line-height: 1.1;
+  --font-h1-family: "Asap", sans-serif;
+  --font-h1-letter-spacing: calc(var(--font-h1-size) * -0.03);
+
+  --font-h1: normal var(--font-h1-weight) var(--font-h1-size) /
+    var(--font-h1-line-height) var(--font-h1-family);
+
+  @include media-query("tablet-wide") {
+    --font-h1-size: #{rem(80)};
+    --font-h1-line-height: 1.125;
+  }
+
+  // Heading 2 Variables
+  --font-h2-weight: var(--font-h-weight);
+  --font-h2-size: #{rem(56)};
+  --font-h2-line-height: 1.14;
+  --font-h2-family: "Asap", sans-serif;
+  --font-h2-letter-spacing: calc(var(--font-h2-size) * -0.03);
+
+  --font-h2: normal var(--font-h2-weight) var(--font-h2-size) /
+    var(--font-h2-line-height) var(--font-h2-family);
+
+  @include media-query("tablet-wide") {
+    --font-h2-size: #{rem(64)};
+    --font-h2-line-height: 1.12;
+  }
+
+  // Heading 3 Variables
+  --font-h3-weight: var(--font-h-weight);
+  --font-h3-size: #{rem(48)};
+  --font-h3-line-height: 1.16;
+  --font-h3-family: "Asap", sans-serif;
+  --font-h3-letter-spacing: calc(var(--font-h3-size) * -0.03);
+
+  --font-h3: normal var(--font-h3-weight) var(--font-h3-size) /
+    var(--font-h3-line-height) var(--font-h3-family);
+
+  @include media-query("tablet-wide") {
+    --font-h3-size: #{rem(56)};
+    --font-h3-line-height: 1.14;
+  }
+
+  // Heading 4 Variables
+  --font-h4-weight: var(--font-h-weight);
+  --font-h4-size: #{rem(40)};
+  --font-h4-line-height: 1.2;
+  --font-h4-family: "Asap", sans-serif;
+  --font-h4-letter-spacing: calc(var(--font-h4-size) * -0.03);
+
+  --font-h4: normal var(--font-h4-weight) var(--font-h4-size) /
+    var(--font-h4-line-height) var(--font-h4-family);
+
+  @include media-query("tablet-wide") {
+    --font-h4-size: #{rem(48)};
+    --font-h4-line-height: 1.16;
+  }
+
+  // Heading 5 Variables
+  --font-h5-weight: var(--font-h-weight);
+  --font-h5-size: #{rem(32)};
+  --font-h5-line-height: 1.25;
+  --font-h5-family: "Asap", sans-serif;
+  --font-h5-letter-spacing: calc(var(--font-h5-size) * -0.03);
+
+  --font-h5: normal var(--font-h5-weight) var(--font-h5-size) /
+    var(--font-h5-line-height) var(--font-h5-family);
+
+  @include media-query("tablet-wide") {
+    --font-h5-size: #{rem(40)};
+    --font-h5-line-height: 1.2;
+  }
+
+  // Heading 6 Variables
+  --font-h6-weight: var(--font-h-weight);
+  --font-h6-size: #{rem(24)};
+  --font-h6-line-height: 1.33;
+  --font-h6-family: "Asap", sans-serif;
+  --font-h6-letter-spacing: calc(var(--font-h6-size) * -0.02);
+
+  --font-h6: normal var(--font-h6-weight) var(--font-h6-size) /
+    var(--font-h6-line-height) var(--font-h6-family);
+
+  @include media-query("tablet-wide") {
+    --font-h6-size: #{rem(32)};
+    --font-h6-line-height: 1.25;
+  }
+
+  // Subheading Variables
+  --font-s-1-weight: var(--font-h-weight);
+  --font-s-1-line-height: 1.2;
+  --font-s-1-size: #{rem(20)};
+  --font-s-1-family: "Asap", sans-serif;
+  --font-s-1-letter-spacing: calc(var(--font-h-size-xxs) * -0.02);
+
+  --font-s-1: normal var(--font-s-1-weight) var(--font-s-1-size) /
+    var(--font-s-1-line-height) var(--font-s-1-family);
+
+  @include media-query("tablet-wide") {
+    --font-s-1-size: #{rem(24)};
+    --font-s-1-line-height: 1.33;
+  }
+
+  // Paragraph Variables
+  // used the weight class to add weight as needed -- default regular
+
+  --font-p-family: "Asap", sans-serif;
+
+  $font-weights: (
+    "semibold": 600,
+    "medium": 500,
+    "regular": 400,
+  );
+
+  @function font-weight($weight-style) {
+    @return map-get($font-weights, $weight-style);
+  }
+  --font-p-weight-semibold: #{font-weight("semibold")};
+  --font-p-weight-medium: #{font-weight("medium")};
+  --font-p-weight-regular: #{font-weight("regular")};
+
+  //p1 variables
+
+  --font-p-1-line-height: 1.33;
+  --font-p-1-size: #{rem(20)};
+
+  @include media-query("tablet-wide") {
+    --font-p-1-size: #{rem(24)};
+  }
+
+  --font-p-1: normal var(--font-p-1-size) / var(--font-p-1-line-height)
+    var(--font-p-family);
+
+  //p2 variables
+  --font-p-2-size: #{rem(20)};
+  --font-p-2-line-height: 1.2;
+
+  --font-p-2: normal var(--font-p-2-size) / var(--font-p-2-line-height)
+    var(--font-p-family);
+
+  //p3 variables
+  --font-p-3-size: #{rem(16)};
+  --font-p-3-line-height: 1.5;
+
+  //Regular
+  --font-p-3: normal var(--font-p-3-size) / var(--font-p-3-line-height)
+    var(--font-p-family);
+
+  //p4 variables
+  --font-p-4-size: #{rem(14)};
+  --font-p-4-line-height: 1.14;
+
+  //Regular
+  --font-p-4: normal var(--font-p-4-size) / var(--font-p-4-line-height)
+    var(--font-p-family);
+
+  //p5 variables
+  --font-p-5-size: #{rem(13)};
+  --font-p-5-line-height: 1.23;
+
+  //Regular
+  --font-p-5: normal var(--font-p-5-size) / var(--font-p-5-line-height)
+    var(--font-p-family);
+
+  // Body 1 Variables
+  --font-b-1-weight: 400;
+  --font-b-1-line-height: 1.25;
+  --font-b-1-line-height-small: 1.33;
+  --font-b-1-size: #{rem(14)};
+  --font-b-1-size-small: #{rem(12)};
+  --font-b-1-size-xs: #{rem(11)};
+  --font-b-1-family: "Asap", sans-serif;
+
+  --font-b-1: normal var(--font-b-1-weight) var(--font-b-1-size) /
+    var(--font-b-1-line-height) var(--font-b-1-family);
+
+  // Navigation
+  --font-nav-family: "Asap", sans-serif;
+  --font-nav-size: #{rem(14)};
+  --font-nav-weight: 600;
+  --font-nav-line-height: 1.2;
+  --font-nav-line-height-btn: 1.5;
+  --font-nav-letter-spacing: calc(var(--font-nav-size) * -0.04);
+  --font-nav-size-item: #{rem(18)};
+  --font-nav-letter-spacing: calc(var(--font-nav-size-item) * -0.02);
+
+  --font-nav: normal var(--font-nav-weight) var(--font-nav-size) /
+    var(--font-nav-line-height) var(--font-nav-family);
+
+  // Label Variables
+  --font-label-weight: 700;
+  --font-label-line-height: 1.43;
+  --font-label-size: #{rem(12)};
+  --font-label-family: "Asap", sans-serif;
+  --font-label-letter-spacing: #{rem(1.12)};
+
+  @include media-query("tablet-wide") {
+    --font-label-size: #{rem(20)};
+  }
+
+  --font-label: normal var(--font-label-weight) var(--font-label-size) /
+    var(--font-label-line-height) var(--font-label-family);
+
+  // Other Variables
+  --font-h-weight: 600;
+}

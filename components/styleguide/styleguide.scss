@@ -1,0 +1,276 @@
+@import "../global/base/helpers";
+
+.styleguide {
+  padding: rem(16);
+  color: var(--color-tena-primary-blue);
+
+  @include media-query("tablet-wide") {
+    padding: rem(60) rem(60) 0;
+
+    &:last-of-type {
+      padding-bottom: rem(60);
+    }
+  }
+
+  .title {
+    color: var(--color-tena-primary-blue);
+  }
+
+  // Styleguide Logos
+  &__inner--logos {
+    @include media-query("tablet-wide") {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // Styleguide Type
+  &__inner--typography {
+    @include media-query("tablet-wide") {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  //Styleguide Grid
+  &__inner--grid {
+    .grid-column {
+      background-color: var(--color-tena-primary-blue);
+
+      &:nth-of-type(n + 5) {
+        display: none;
+      }
+
+      @include media-query("tablet-wide") {
+        &:nth-of-type(n + 5) {
+          display: block;
+        }
+      }
+    }
+
+    .grid {
+      height: rem(24);
+      background-color: var(--color-tena-light-blue);
+    }
+  }
+
+  // Styleguide Icons
+  &__icons {
+    display: grid;
+    gap: rem(36);
+    grid-template-columns: repeat(7, max-content);
+    margin: 0 0 rem(20);
+
+    @include media-query("tablet-wide") {
+      grid-template-columns: repeat(24, max-content);
+    }
+  }
+
+   // Styleguide buttons
+
+  &__inner--buttons {
+    @include media-query("tablet-wide") {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    p.p-2,
+    p.p-3 {
+      margin: 0;
+    }
+  }
+
+  .dark {
+
+    p.p-2,
+    p.p-3 {
+      color: var(--color-white);
+    }
+  }
+
+  &__play-buttons{
+    @include media-query("tablet-wide"){
+      &:nth-child(n + 3) {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__play-buttons{
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: rem(40);
+  min-height: rem(260);
+  padding: rem(15);
+  }
+
+  &__play-button{
+    display: flex;
+    gap:rem(40);
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: rem(40);
+      align-items: center;
+    }
+  }
+
+
+  &__buttons {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: rem(16);
+    min-height: rem(260);
+    padding: rem(15);
+
+    @include media-query("tablet-wide") {
+      padding: rem(30);
+    }
+  }
+
+  &__button {
+    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(20);
+
+    @include media-query("tablet-wide") {
+      grid-template-columns: repeat(4, max-content);
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: rem(16);
+    }
+  }
+
+  //Styleguide Colors
+  &__colors-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__color-item {
+    text-align: center;
+
+    @include media-query("tablet-wide") {
+      &:nth-child(n + 4) {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  &__color {
+    display: flex;
+    align-items: baseline;
+    height: rem(160);
+    padding: rem(20);
+    width: 100%;
+
+
+    .h6 {
+      font-size: 90%;
+      text-align: left;
+
+      @include media-query("tablet-wide") {
+        font-size: 110%;
+      }
+    }
+
+    span {
+      display: block;
+      font-size: 150%;
+      font-weight: normal;
+    }
+  }
+
+  //Styleguide Form
+  &__inner--forms {
+    display: flex;
+    flex-direction: column;
+    
+
+    .helper-text{
+      margin-top: rem(8);
+    }
+  }
+
+    &__input--fields {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  
+      .input--field{
+        width: 100%;
+      }
+
+      @include media-query('tablet-wide'){
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: rem(20)
+      }
+    }
+
+  &__form-select{
+    display: flex;
+    flex-direction: column;
+    gap:rem(20);
+    
+    .custom-select{
+      min-width: 100%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .container:nth-child(3){
+        margin-bottom: rem(168);
+      }
+    }
+    
+    @include media-query('tablet-wide'){
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: rem(20)
+    }
+  }
+
+  .form--select--container {
+    margin-bottom: rem(20);
+  }
+
+  .form--select--container, .form--select{
+    width: 100%;
+  }
+  
+
+  &__color--border {
+    border: 0.5px solid var(--color-black);
+  }
+
+  +.styleguide {
+    margin-top: 60px;
+  }
+
+
+  hr {
+    margin: 0 0 rem(30);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0 0 rem(20);
+  }
+}

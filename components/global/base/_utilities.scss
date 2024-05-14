@@ -1,0 +1,14 @@
+// Color classes
+@each $key, $value in $theme-colors {
+  .color-#{$key} {
+    color: var(--color-#{$key});
+  }
+
+  .hover\:color-#{$key} *:hover {
+    color: var(--color-#{$key});
+  }
+
+  .bg-#{$key} {
+    background-color: var(--color-#{$key});
+  }
+}

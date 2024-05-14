@@ -1,0 +1,64 @@
+{{ 'styleguide.min.css' | asset_url | stylesheet_tag }}
+
+{% comment  %}Logos{% endcomment %}
+<div class="styleguide styleguide--logos container">
+  <h3 class="title">Logos</h3>
+  <hr class="my-2">
+  <div class="styleguide__inner styleguide__inner--logos">
+    {% render 'styleguide-logos' %}
+  </div>
+</div>
+
+{% comment %}Colors{% endcomment %}
+<div class="styleguide styleguide--colors mt-4 container">
+  <h3 class="title">Colors</h3>
+  <hr class="my-2">
+  <div class="styleguide__inner py-4">
+    {% render 'styleguide-colors' %}
+  </div>
+</div>
+
+{% comment %}Typography{% endcomment %}
+<div class="styleguide styleguide--typography container">
+  <h3 class="title">Typography</h3>
+  <hr class="my-2">
+  <div class="styleguide__inner styleguide__inner--typography py-4">
+    {% render 'styleguide-typography' %}
+  </div>
+</div>
+
+{% comment %}Grid{% endcomment %}
+<div class="styleguide styleguide--grid container">
+  <h3 class="title">Grid</h3>
+  <hr class="my-2">
+  <div class="styleguide__inner styleguide__inner--grid py-4">
+    {%-render 'styleguide-grid' %}
+  </div>
+</div>
+
+{% comment %}Icons{% endcomment %}
+<div class="styleguide styleguide--icons container">
+  <h3 class="title">Icons</h3>
+  <hr />
+  <div class="styleguide__inner styleguide__inner--icons">
+    {%- render 'styleguide-icons' -%}
+  </div>
+</div>
+
+{% comment %}Buttons{% endcomment %}
+<div class="styleguide styleguide--buttons bg-light-yellow container">
+  <h4 class="h4">Buttons</h4>
+  <hr />
+  <div class="styleguide__inner styleguide__inner--buttons">
+    {%- render 'styleguide-buttons' -%}
+  </div>
+</div>
+
+{% comment %}Forms{% endcomment %}
+<div class="styleguide styleguide--forms my-4 container">
+  <h3 class="title">Forms & Fields</h3>
+  <hr class="my-2">
+  {% render 'styleguide-form-fields'%}
+</div>
+
+<script src="{{ 'styleguide.min.js' | asset_url }}" defer="defer"></script>

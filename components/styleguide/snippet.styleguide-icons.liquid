@@ -1,0 +1,42 @@
+{%- liquid
+  comment
+  @format: <background-color>:<text-color>:<hex-code>
+  endcomment
+
+  assign utility_icons = 'hamburger,close,search,bag,account,plus,minus,check,arrow-down,arrow-up,arrow-left,arrow-right,caret-down,caret-up,caret-left,caret-right,filter,star,heart'
+  assign utility_icons_array = utility_icons | split: ','
+
+  assign utility_icons_small = 'close,plus,minus,check,caret-down,caret-up,caret-left,caret-right,filter,attention'
+  assign utility_icons_small_array = utility_icons_small | split: ','
+
+  assign social_icons = 'facebook,instagram,tiktok,youtube,x'
+  assign social_icons_array = social_icons | split: ','
+-%}
+
+{%- if utility_icons != blank -%}
+  <h6 class="h6">Utility Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in utility_icons_array -%}
+      {% render 'icons', icon_name: icon %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{%- if utility_icons_small != blank -%}
+  <h6 class="h6">Small Utility Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in utility_icons_small_array -%}
+      {% render 'icons', icon_name: icon, class: 'icon--small' %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{%- if social_icons != blank -%}
+  <h6 class="h6">Social Icons</h6>
+  <div class="styleguide__icons">
+    {%- for icon in social_icons_array -%}
+      {% render 'icons', icon_name: icon %}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+

@@ -1,0 +1,9 @@
+@import './helpers';
+
+.icon {
+
+  &--small {
+    height: rem(10);
+    width: rem(10);
+  }
+}

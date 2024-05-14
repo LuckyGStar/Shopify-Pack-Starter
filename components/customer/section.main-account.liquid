@@ -1,0 +1,13 @@
+{{ 'customer.min.css' | asset_url | stylesheet_tag }}
+
+<main-account class="customer account container flex flex-direction-column">
+</main-account>
+
+<script src="{{ 'customer.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.main-account.name",
+  "settings": []
+}
+{% endschema %}

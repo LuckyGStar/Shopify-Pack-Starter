@@ -1,0 +1,82 @@
+{% assign resource = section.settings %}
+
+<div class="main-404">
+  {% unless resource.eyebrow == blank %}
+    <div class="h5">{{ resource.eyebrow }}</div>
+  {% endunless %}
+  {% unless resource.heading == blank %}
+    <div class="xl">{{ resource.heading }}</div>
+  {% endunless %}
+  {% unless resource.copy == blank %}
+    <div>{{ resource.copy }}</div>
+  {% endunless %}
+  {% unless resource.cta_copy == blank %}
+    <a href="{{ resource.cta_url }}" class= button button--{{ resource.cta_style }}">
+      {{- resource.cta_copy -}}
+    </a>
+  {% endunless %}
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "tag": "section",
+  "class": "invalid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "copy",
+      "label": "Page body text"
+    },
+    {
+      "type": "text",
+      "id": "cta_copy",
+      "label": "CTA text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA URL"
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": "CTA Style",
+      "options": [
+        {
+          "label": "Primary",
+          "value": "primary"
+        },
+        {
+          "label": "Secondary outline",
+          "value": "secondary-outline"
+        },
+        {
+          "label": "Secondary no outline",
+          "value": "secondary-no-outline"
+        },
+        {
+          "label": "Secondary arrow",
+          "value": "secondary-arrow"
+        },
+        {
+          "label": "Orange",
+          "value": "orange"
+        }
+      ],
+      "default": "primary"
+    }
+  ],
+  "templates": ["404"]
+}
+{% endschema %}

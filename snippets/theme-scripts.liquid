@@ -1,0 +1,93 @@
+<script>
+  window.loadSwiper = new Promise((res) => {
+    window.loadSwiperFulfillPromise = res;
+  });
+</script>
+
+<script>
+  window.shopUrl = '{{ request.origin }}';
+  window.routes = {
+    cart_add_url: '{{ routes.cart_add_url }}',
+    cart_change_url: '{{ routes.cart_change_url }}',
+    cart_update_url: '{{ routes.cart_update_url }}',
+    cart_url: '{{ routes.cart_url }}',
+    predictive_search_url: '{{ routes.predictive_search_url }}',
+  };
+
+  window.cartStrings = {
+    error: `{{ 'sections.cart.cart_error' | t }}`,
+    quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+  };
+
+  window.variantStrings = {
+    addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+    soldOut: `{{ 'products.product.sold_out' | t }}`,
+    unavailable: `{{ 'products.product.unavailable' | t }}`,
+    unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+  };
+
+  window.quickOrderListStrings = {
+    itemsAdded: `{{ 'sections.quick_order_list.items_added.other' | t: quantity: '[quantity]' }}`,
+    itemAdded: `{{ 'sections.quick_order_list.items_added.one' | t: quantity: '[quantity]' }}`,
+    itemsRemoved: `{{ 'sections.quick_order_list.items_removed.other' | t: quantity: '[quantity]' }}`,
+    itemRemoved: `{{ 'sections.quick_order_list.items_removed.one' | t: quantity: '[quantity]' }}`,
+    viewCart: `{{- 'sections.quick_order_list.view_cart' | t -}}`,
+    each: `{{- 'sections.quick_order_list.each' | t: money: '[money]' }}`,
+  };
+
+  window.accessibilityStrings = {
+    imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
+    shareSuccess: `{{ 'general.share.success_message' | t }}`,
+    pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
+    playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+    recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
+    recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
+  };
+</script>
+
+<script>
+window.api = {
+  shop: '{{ shop.domain }}',
+  version: '2023-10',
+  token: {{ settings.storefront_api_key | json }},
+};
+</script>
+
+<script>
+  window.markerConfig = {
+    project: '65cf9ef2793b0166513e3ace',
+    source: 'snippet',
+  };
+
+  !(function (e, r, a) {
+    if (!e.__Marker) {
+      e.__Marker = {};
+      var t = [],
+        n = { __cs: t };
+      [
+        'show',
+        'hide',
+        'isVisible',
+        'capture',
+        'cancelCapture',
+        'unload',
+        'reload',
+        'isExtensionInstalled',
+        'setReporter',
+        'setCustomData',
+        'on',
+        'off',
+      ].forEach(function (e) {
+        n[e] = function () {
+          var r = Array.prototype.slice.call(arguments);
+          r.unshift(e), t.push(r);
+        };
+      }),
+        (e.Marker = n);
+      var s = r.createElement('script');
+      (s.async = 1), (s.src = 'https://edge.marker.io/latest/shim.js');
+      var i = r.getElementsByTagName('script')[0];
+      i.parentNode.insertBefore(s, i);
+    }
+  })(window, document);
+</script>

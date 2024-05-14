@@ -1,0 +1,48 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    {% render 'onetrust-cookie' %}
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {%- if settings.favicon != blank and settings.favicon contains '.png' -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/png" />
+      {%- elsif settings.favicon != blank and settings.favicon contains '.ico' -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: 'master' }}" type="image/x-icon" />
+    {%- endif -%}
+    
+    {{ content_for_header }}
+    
+    {% render 'theme-styles' %}
+    {% render 'theme-scripts' %}
+
+    <script src="{{ 'global.min.js' | asset_url }}" defer="defer"></script>
+  </head>
+
+  <body id="page-{{ page_title | handle }}" class="page-{{ page_title | handle }} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+    
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
+    
+    <main id="page-content">
+      {{ content_for_layout }}
+    </main>
+  </body>
+</html>

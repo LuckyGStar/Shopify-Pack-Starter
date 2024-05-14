@@ -1,0 +1,59 @@
+<div class="styleguide__buttons">
+  <p class="p-2 uc strong">Primary Button - On light</p>
+  <div class="styleguide__button">
+    <div>
+      <button class="btn btn--primary p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Default</p>
+    </div>
+    <div>
+      <button class="btn btn--primary btn--hover p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Hover</p>
+    </div>
+    <div>
+      <button class="btn btn--primary btn--active p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Pressed</p>
+    </div>
+    <div>
+      <button class="btn btn--primary btn--focus p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Focus</p>
+    </div>
+  </div>
+</div>
+<div class="styleguide__buttons dark bg-tena-primary-blue">
+  <p class="p-2 uc strong">Primary Button - On Dark</p>
+  <div class="styleguide__button">
+    <div>
+      <button class="btn btn--primary-light p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Default</p>
+    </div>
+    <div>
+      <button class="btn btn--primary-light btn--hover p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Hover</p>
+    </div>
+    <div>
+      <button class="btn btn--primary-light btn--active p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Pressed</p>
+    </div>
+    <div>
+      <button class="btn btn--primary-light btn--focus p-2 w-medium" onclick="this.blur();">Button</button>
+      <p class="p-3">Focused</p>
+    </div>
+  </div>
+</div>
+<div class="styleguide__play-buttons bg-light-grey">
+  <p class="p-2 uc strong">PLAY BUTTON TEST</p>
+  <div class="styleguide__play-button">
+    <div class="button-container">
+      <div class="btn--play">{% render 'icons', icon_name: 'play', class: '' %}</div>
+      <p class="p-3">Default</p>
+    </div>
+    <div class="button-container">
+      <div class="btn--play btn--play-hover">{% render 'icons', icon_name: 'play', class: '' %}</div>
+      <p class="p-3">Hover</p>
+    </div>
+    <div class="button-container">
+      <div class="btn--play btn--play-focus" tabindex="0">{% render 'icons', icon_name: 'play', class: '' %}</div>
+      <p class="p-3">Focus</p>
+    </div>
+  </div>
+</div>

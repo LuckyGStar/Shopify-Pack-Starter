@@ -1,0 +1,39 @@
+{{ 'header.min.css' | asset_url | stylesheet_tag }}
+
+<header
+  data-sticky-type="always"
+  {% if transparent_header %}
+    data-transparent="transparent"
+  {% endif %}
+  class="header-wrapper header-wrapper--mega"
+>
+</header>
+
+<script src="{{ 'header.min.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Menu List"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.header.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+{% comment %}
+  Image component
+  image : Object
+  image_m : Object
+  class: string
+  attr: string
+  loading: string
+  preload: boolean
+{% endcomment %}
+
+{% liquid
+  assign attr = attr | default: ''
+  assign loading = loading | default: 'lazy'
+  assign preload = preload | default: false
+  assign break_class = 'image--default'
+  assign class = class | default: false
+  assign image_slide = image_slide | default: false
+  assign overlay = overlay | default: false
+  assign image = image | default: false
+  assign image_m = image_m | default: image
+  assign max_width = max_width | default: image.width
+  assign max_width_m = max_width_m | default: image_m.width
+  assign aspect_ratio_mobile = aspect_ratio_mobile | default: aspect_ratio | default: image_m.aspect_ratio | default: image.aspect_ratio
+  assign aspect_ratio_desktop = aspect_ratio | default: image.aspect_ratio
+
+  if image_m !=blank
+    assign desktop_class = 'image--desktop'
+  endif
+%}
+
+<div
+  class="image {{ break_class }} {{ class }}"
+  style="
+    --aspect-ratio-desktop: {{ aspect_ratio_desktop | round: 2 }};
+    --aspect-ratio-mobile: {{ aspect_ratio_mobile | round: 2 }};
+    --object-position-desktop: {{ image.presentation.focal_point | default: 'center' }};
+    --object-position-mobile: {{ image_m.presentation.focal_point | default: 'center' }};
+  "
+>
+  {% if image %}
+    <div>
+      {{  image | image_url: width: max_width | image_tag: data-media-slide: image_slide, loading: loading, class: desktop_class, preload: preload }}
+      {% if image_m !=blank %}
+        {{  image_m | image_url: width: max_width_m | image_tag: data-media-slide: image_slide, loading: loading, class: 'image--mobile', preload: preload  }}
+      {% endif %}
+      {% if overlay == true %}
+        <span data-media-slide class="image__overlay"></span>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

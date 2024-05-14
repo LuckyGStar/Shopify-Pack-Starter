@@ -1,0 +1,20 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "shopify pack starter",
+    "theme_version": "1.0.0",
+    "theme_author": "andy",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
+  },
+  {
+    "name": "t:settings_schema.api.name",
+    "settings": [
+      {
+        "type": "text",
+        "id": "storefront_api_key",
+        "label": "t:settings_schema.api.settings.storefront_api_key.label"
+      }
+    ]
+  }
+]

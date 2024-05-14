@@ -1,0 +1,70 @@
+@import "./helpers";
+
+$theme-colors: (
+  "black": #222,
+  "blue": #3043E9,
+  "penn-dark-blue": #001F5F,
+  "tena-primary-blue":#003A81,
+  "tena-secondary-blue":#33B1E7,
+  "ada-secondary-blue":#1F9FD6,
+  "dark-blue":#00224D,
+  "tena-light-blue":#C2E8F8,
+  "white": #fff,
+  "off-white":#F2F6FB,
+  "light-grey":#E5EBF2,
+  "medium-grey":#CFD7E0,
+  "extra-light-grey": #f8f8f8,
+  "dark-grey": #767676,
+  "navy": #080f4e,
+  "lavender": #d1bfe7,
+  "sunset": #f95031,
+  "star-gold": #EAA944,
+  "dark-green": #14332a,
+  "mist": #efeff2,
+  "orange": #d34518,
+  "error-red": #C52F40,
+  "tena-green":#92BB1F
+);
+
+$theme-spacers: (5,12,16,20,24,32,35,40,45,50,56,60,64,70,75,80,85,90,100,120,130,150,160,200);
+
+:root {
+  --offset: 32px;
+  --offset_large: 82px;   
+  --m_offset: 20px;
+  --m_offset_large: 64px;   
+  
+  @each $key,
+  $value in $theme-colors {
+    --color-#{$key}: #{$value};
+  }
+
+  @each $value in $theme-spacers {
+    --space-#{$value}: #{rem($value)};
+  }
+
+  --space-sm: #{rem(16)};
+  --space-md: #{rem(24)};
+  --space-lg: #{rem(32)};
+  --space-xl: #{rem(40)};
+ 
+  //Grid Variables
+   --grid-columns-desktop: 12;
+   --grid-gutter-desktop-col: #{rem(16)};
+   --grid-gutter-desktop-row: #{rem(16)};
+   --grid-outergutter-desktop: #{rem(32)}; 
+   --grid-columns-mobile: 4;
+   --grid-gutter-mobile-col: #{rem(16)};
+   --grid-gutter-mobile-row: #{rem(16)};
+   --grid-outergutter-mobile: #{rem(16)}; 
+
+  --base-font-size: 16px;
+
+  --gutter: var(--space-20) var(--space-16);
+  --wide-gutter: var(--space-16);
+
+  @include media-query("tablet-wide") {
+    --gutter: var(--space-32);
+    --wide-gutter: var(--space-160);
+  }
+}

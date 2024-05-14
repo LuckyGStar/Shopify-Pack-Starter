@@ -1,0 +1,29 @@
+{% comment %}
+  --------------------------------------------------------------------------------
+  Icons
+  Renders an SVG icon based on the name passed through to the snippet.
+
+  @param icon_name {String}
+
+  --------------------------------------------------------------------------------
+{% endcomment %}
+
+{%- liquid
+  assign icon_name = icon_name | downcase | default: ''
+  assign icon_class = 'icon icon--' | append: icon_name
+-%}
+
+{%- case icon_name -%}
+  {%- when 'close' -%}
+    <svg
+      class="{{ class }} {{ icon_class }}"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1111 17.1113C17.5016 16.7208 17.5016 16.0876 17.1111 15.6971L4.30308 2.88908C3.91256 2.49856 3.27939 2.49856 2.88887 2.88908C2.49835 3.27961 2.49834 3.91277 2.88887 4.3033L15.6969 17.1113C16.0874 17.5018 16.7206 17.5018 17.1111 17.1113Z" fill="#003A81"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M2.8889 17.2881C3.27943 17.6786 3.91259 17.6786 4.30311 17.2881L17.1111 4.48006C17.5016 4.08953 17.5016 3.45637 17.1111 3.06584C16.7206 2.67532 16.0874 2.67532 15.6969 3.06584L2.8889 15.8739C2.49838 16.2644 2.49838 16.8975 2.8889 17.2881Z" fill="#003A81"/>
+    </svg>
+{%- endcase -%}
